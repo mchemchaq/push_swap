@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   to_linked.c                                        :+:      :+:    :+:   */
+/*   print_lst.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchemcha <mchemcha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 09:09:13 by mchemcha          #+#    #+#             */
-/*   Updated: 2024/02/17 10:47:19 by mchemcha         ###   ########.fr       */
+/*   Created: 2024/02/20 19:44:29 by mchemcha          #+#    #+#             */
+/*   Updated: 2024/02/20 21:19:36 by mchemcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-noeud *to_list(char **tab)
+void    printf_lst_next(t_stack *list)
 {
-    int i;
-    noeud *list;
+    t_stack *p;
+    
+    if (list == NULL)
+        return;
+    p = list;
+    do {
+        printf("%d\n", p->content);
+        p = p->next;
+    } while (p != list);
+}
 
-	list = NULL;
-    i = 0;
-    while (tab[i])
+
+void    printf_lst_prev(t_stack *list)
+{
+    t_stack *head;
+    
+    head = list;
+    while(list)
     {
-		noeud *p = (noeud *)malloc(sizeof(noeud));
-		p->content = *tab[i];
-		p->next = NULL; 
-		if (list == NULL) 
-		{
-			list = p;
-		}else 
-		{
-			noeud *c = list;
-			while (c->next != NULL) 
-                c = c->next;
-            c->next = p;
-        }
-		i++;
+        printf("%d\n",list->content);
+        list = list->prev;
+        if(head == list)
+            break; 
     }
-    return(list);
 }

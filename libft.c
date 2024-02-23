@@ -6,12 +6,80 @@
 /*   By: mchemcha <mchemcha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 09:02:55 by mchemcha          #+#    #+#             */
-/*   Updated: 2024/02/17 09:07:00 by mchemcha         ###   ########.fr       */
+/*   Updated: 2024/02/21 18:08:01 by mchemcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n
+		&& ((unsigned char)s1[i] != '\0' || (unsigned char)s2[i] != '\0'))
+	{
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
+}
+long long	ft_atoi(char *str)
+{
+	size_t				i;
+	long long				sign;
+	long long	result;
+
+	result = 0;
+	sign = 1;
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = (result * 10 + str[i] - 48);
+		i++;
+	}
+	return (result *= sign);
+}
+// long long    ft_atoi(char *str)
+// {
+//     size_t            i;
+//     long long        k;
+//     long long        sign;
+
+//     i = 0;
+//     k = 0;
+//     sign = 1;
+//     while ((str[i] == ' ') || (str[i] >= '\t' && str[i] <= '\r'))
+//         i++;
+//     if (str[i] == '-')
+//         sign *= -1;
+//     if (str[i] == '+' || str[i] == '-')
+//         i++;
+//     while (str[i])
+//     {
+//         k = k * 10 + (str[i] - '0');
+//         i++;
+//     }
+//     return (k * sign);
+// }
 size_t	ft_strlen(const char *str)
 {
 	size_t	i;
