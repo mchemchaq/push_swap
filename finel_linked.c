@@ -6,8 +6,6 @@ t_stack	*ft_lstlast(t_stack *lst)
 {
 	if (!lst)
 		return (NULL);
-	// lst = lst ->prev;
-	// pru("#####");
 	return (lst ->prev);
 }
 
@@ -18,6 +16,7 @@ t_stack	*ft_lstnew(int content)
 	list = (t_stack *)malloc(sizeof(t_stack));
 	if (list == NULL)
 		return (NULL);
+	list -> index = 0;
 	list -> content = content;
 	list -> next = list;
     list -> prev = list;                                                                                                                                                                                                              
@@ -42,8 +41,6 @@ void	ft_lstadd_back(t_stack **lst, t_stack *newlst)
 }
 void	ft_lstadd_front(t_stack **lst, t_stack *newlst)
 {
-	// t_stack	*last;
-	// t_stack	*first;
 	if (*lst == NULL)
 		*lst = newlst;
 	else
@@ -69,7 +66,6 @@ t_stack *to_list(char **tab)
 			ft_lstadd_back(&list, p);
 		i++;
 	}
-	//printf_lst_next(list);
 	return(list);
 }
 int	ft_lstsize(t_stack *lst)

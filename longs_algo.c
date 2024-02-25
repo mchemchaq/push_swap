@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   longs_algo.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchemcha <mchemcha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 19:04:02 by mchemcha          #+#    #+#             */
-/*   Updated: 2024/02/25 18:25:39 by mchemcha         ###   ########.fr       */
+/*   Created: 2024/02/25 17:50:13 by mchemcha          #+#    #+#             */
+/*   Updated: 2024/02/25 18:55:48 by mchemcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <unistd.h>
-
-int	main(int ac, char *av[])
+char    sort(t_stack **list)
 {
-	int		i;
-	t_stack	*list;
-	char	**tab;
-	char	*s;
-	
-	if (ac < 2)
-		exit (1);
-	i = 0;
-	while(av[++i])
-	{
-		check_empty(av[i]);
-		check_space(av[i]);
-	}
-	s = av[1];
-	i = 1;
-	while(av[++i])
-	{
-		s = ft_strjoin(s, " ");
-		s = ft_strjoin(s, av[i]);
-	}
-	tab = ft_split(s, ' ');
-	parcing(tab);
-	list = to_list(tab);
+    int i;
+    t_stack *first = *list;
+    t_stack *last = ft_lstlast(*list);
+    if()
+    while (first -> next != last)
+    {
+        
+    }
 }

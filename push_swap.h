@@ -6,7 +6,7 @@
 /*   By: mchemcha <mchemcha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 17:27:09 by mchemcha          #+#    #+#             */
-/*   Updated: 2024/02/25 15:55:17 by mchemcha         ###   ########.fr       */
+/*   Updated: 2024/02/25 18:49:25 by mchemcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 typedef struct s_stack
 {
     int content;
+    int index;
     struct s_stack *next;
     struct s_stack *prev;
 }t_stack;

@@ -6,7 +6,7 @@
 /*   By: mchemcha <mchemcha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 13:28:16 by mchemcha          #+#    #+#             */
-/*   Updated: 2024/02/25 17:30:50 by mchemcha         ###   ########.fr       */
+/*   Updated: 2024/02/25 18:21:08 by mchemcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,14 @@ void p_b(t_stack **stack_a,t_stack **stack_b)
 	
 	if (!*stack_a)
 		return ;
+	if(ft_lstsize(*stack_a) == 1)
+	{
+		t_stack *first = *stack_a;
+		ft_lstadd_front(stack_b,first);
+		*stack_a = NULL;
+		return;
+	}
 	a = *stack_a;
-	
 	last = ft_lstlast(*stack_a);
 	b = a->next;
 	a->next = a;
@@ -107,8 +113,8 @@ void  p_a(t_stack **stack_a,t_stack **stack_b)
 	a->prev=a;
 	b->prev =last;
 	last->next=b;
-	*stack_b=b;
 		
 	ft_lstadd_front(stack_a,a);
+	*stack_b=b;
 }
 
