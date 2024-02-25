@@ -6,7 +6,7 @@
 /*   By: mchemcha <mchemcha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 09:02:55 by mchemcha          #+#    #+#             */
-/*   Updated: 2024/02/21 18:08:01 by mchemcha         ###   ########.fr       */
+/*   Updated: 2024/02/24 14:01:08 by mchemcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,28 +58,6 @@ long long	ft_atoi(char *str)
 	}
 	return (result *= sign);
 }
-// long long    ft_atoi(char *str)
-// {
-//     size_t            i;
-//     long long        k;
-//     long long        sign;
-
-//     i = 0;
-//     k = 0;
-//     sign = 1;
-//     while ((str[i] == ' ') || (str[i] >= '\t' && str[i] <= '\r'))
-//         i++;
-//     if (str[i] == '-')
-//         sign *= -1;
-//     if (str[i] == '+' || str[i] == '-')
-//         i++;
-//     while (str[i])
-//     {
-//         k = k * 10 + (str[i] - '0');
-//         i++;
-//     }
-//     return (k * sign);
-// }
 size_t	ft_strlen(const char *str)
 {
 	size_t	i;

@@ -6,7 +6,7 @@
 /*   By: mchemcha <mchemcha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 12:39:37 by mchemcha          #+#    #+#             */
-/*   Updated: 2024/02/21 17:16:40 by mchemcha         ###   ########.fr       */
+/*   Updated: 2024/02/25 17:05:42 by mchemcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,31 @@ int check_min_max(char **tab)
     }
     return (1);
 }
+int compare_int(int a, int b)
+{
+    if(a == b)
+        return(0);
+    return (1);
+}
+// int check_dubl(char **tab)
+// {
+//     int i = 0;
+//     int j ;
+    
+//     while(tab[i])
+//     {
+//         j = i + 1;
+//         while(tab[j])
+//         {
+//             if(ft_strncmp(tab[i], tab[j], 10)== 0)
+//                 return(0);
+//             else 
+//                 j++;
+//         }
+//         i++;
+//     }
+//     return (1);
+// }
 int check_dubl(char **tab)
 {
     int i = 0;
@@ -85,7 +110,7 @@ int check_dubl(char **tab)
         j = i + 1;
         while(tab[j])
         {
-            if(ft_strncmp(tab[i], tab[j], 10)== 0)
+            if(!compare_int(*tab[i] , *tab[j]))
                 return(0);
             else 
                 j++;
@@ -96,12 +121,13 @@ int check_dubl(char **tab)
 }
 int parcing(char **tab)
 {
-    t_stack *list;
-    if (!check_dubl(tab) || !check_min_max(tab) || !check_int(tab))
+    // t_stack *list;
+    if (!check_min_max(tab) || !check_int(tab))
         ft_error("Error");
-    else
-    {
-        list = to_list(tab);
-    }
+    int j = -1;
+	while (tab[++j])
+		*tab[j] = atoi(tab[j]);
+    if(!check_dubl(tab))
+        ft_error("Error");
     return(1);
 }

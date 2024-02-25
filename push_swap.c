@@ -6,19 +6,22 @@
 /*   By: mchemcha <mchemcha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 19:04:02 by mchemcha          #+#    #+#             */
-/*   Updated: 2024/02/23 18:45:20 by mchemcha         ###   ########.fr       */
+/*   Updated: 2024/02/25 17:29:36 by mchemcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+
+#include <sys/_types/_null.h>
 #include <unistd.h>
 
 
 int	main(int ac, char *av[])
 {
 	int		i;
-	int 	j;
 	t_stack	*list;
+	t_stack	*stack_b;
 	char	**tab;
 	char	*s;
 	
@@ -39,17 +42,35 @@ int	main(int ac, char *av[])
 	}
 	tab = ft_split(s, ' ');
 	parcing(tab);
-	j = -1;
-	while (tab[++j])
-		*tab[j] = atoi(tab[j]);
 	list = to_list(tab);
-	// printf_lst_next(list);
-	// printf("prev----->\n");
-	s_a(&list);
-	// r_a(&list);
-	// r_r_a(&list);
+
 	
-	// printf_lst_next(list);
-	// printf("<------>\n");
-	// printf_lst_prev(list);
+	stack_b = NULL;
+	p_b(&list, &stack_b);
+	p_b(&list, &stack_b);
+	p_b(&list, &stack_b);
+	p_b(&list, &stack_b);
+	p_b(&list, &stack_b);
+	p_b(&list, &stack_b);
+
+
+	p_a(&list, &stack_b);
+	p_a(&list, &stack_b);
+	puts("---->");
+
+	printf_lst_next(list);
+	// p_a(&list, &stack_b);
+
+	// p_a(&list, &stack_b);
+
+	// p_a(&list, &stack_b);
+	// p_b(&list, &stack_b);
+	
+	puts("---->");
+	printf_lst_next(stack_b);
+	// printf_lst_next(stack_b);
+
+
+	puts("--->");
+	
 }

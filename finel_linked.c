@@ -1,36 +1,14 @@
 #include "push_swap.h"
 
-void    printf_lst_next(t_stack *list)
-{
-    t_stack *p;
-    
-    if (list == NULL)
-        return;
-    p = list;
-    do{
-        printf("%d\n", p->content);
-        p = p->next;
-    } while (p != list);
-}
-void    printf_lst_prev(t_stack *list)
-{
-    t_stack *head;
-    
-    head = list->prev;
-    while(head)
-    {
-        printf("%d\n",head->content);
-        head = head->prev;
-        if(head == list->prev)
-            break; 
-    }
-}
+
 
 t_stack	*ft_lstlast(t_stack *lst)
 {
-	t_stack *last;
-	last = lst ->prev;
-	return (last);
+	if (!lst)
+		return (NULL);
+	// lst = lst ->prev;
+	// pru("#####");
+	return (lst ->prev);
 }
 
 t_stack	*ft_lstnew(int content)
@@ -42,7 +20,7 @@ t_stack	*ft_lstnew(int content)
 		return (NULL);
 	list -> content = content;
 	list -> next = list;
-    list -> prev = list;                                                                                                                                                                                                                        
+    list -> prev = list;                                                                                                                                                                                                              
 	return (list);
 }
 void	ft_lstadd_back(t_stack **lst, t_stack *newlst)
@@ -57,27 +35,23 @@ void	ft_lstadd_back(t_stack **lst, t_stack *newlst)
 		first = *lst;
 		last = ft_lstlast(*lst);
 		last -> next = newlst;
-		newlst->next = first;
+		newlst -> next = first;
 		first->prev=newlst;
 		newlst->prev=last;
 	}
 }
 void	ft_lstadd_front(t_stack **lst, t_stack *newlst)
 {
-	t_stack *first;
-	t_stack *last;
-
-	first = *lst;
-	last = ft_lstlast(*lst);
-	if (lst == NULL)
-		return ;
+	// t_stack	*last;
+	// t_stack	*first;
 	if (*lst == NULL)
-		newlst -> next = NULL;
-	newlst->next = first;
-	first->prev = newlst;
-	newlst->prev = last;
-	last->next = newlst;
-	*lst = newlst;
+		*lst = newlst;
+	else
+	{
+		ft_lstadd_back(lst, newlst);
+		
+		*lst = newlst;
+	}
 }
 t_stack *to_list(char **tab)
 {
@@ -85,15 +59,33 @@ t_stack *to_list(char **tab)
     t_stack *list;
 
 	list = NULL;
-    i = 0;
-    while ((int *)tab[i])
+	i = 0;
+    while (tab[i])
     {
-		t_stack *p=ft_lstnew(*tab[i]);
+		t_stack *p = ft_lstnew((int)*tab[i]);
 		if (list == NULL)
-			list = p;
+			list=p;
 		else
 			ft_lstadd_back(&list, p);
 		i++;
-    }
-    return(list);
+	}
+	//printf_lst_next(list);
+	return(list);
+}
+int	ft_lstsize(t_stack *lst)
+{
+	t_stack	*i;
+	int		s;
+	t_stack *last = ft_lstlast(lst);
+	s = 1;
+	i = lst;
+	if (lst == NULL)
+		return (0);
+	while (i != last && i -> next != NULL)
+	{
+		s += 1;
+		i = i -> next;
+	}
+
+	return (s);
 }

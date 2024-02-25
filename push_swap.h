@@ -6,7 +6,7 @@
 /*   By: mchemcha <mchemcha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 17:27:09 by mchemcha          #+#    #+#             */
-/*   Updated: 2024/02/23 18:45:51 by mchemcha         ###   ########.fr       */
+/*   Updated: 2024/02/25 15:55:17 by mchemcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ t_stack	    *ft_lstlast(t_stack *lst);
 void	    ft_lstadd_front(t_stack **lst, t_stack *newlst);
 void	    ft_lstadd_back(t_stack **lst, t_stack *newlst);
 t_stack	    *ft_lstnew(int content);
+int	        ft_lstsize(t_stack *lst);
 void        s_a(t_stack **stack_a);
 void        r_a(t_stack **stack_a);
 void        s_s(t_stack **stack_a, t_stack **stack_b);
@@ -57,6 +58,7 @@ void        r_r(t_stack **stack_a, t_stack **stack_b);
 void        r_r_a(t_stack **stack_a);
 void        r_r_r(t_stack **stack_a, t_stack **stack_b);
 void        p_a(t_stack **stack_a,t_stack **stack_b);
+void        p_b(t_stack **stack_a,t_stack **stack_b);
 
 void        printf_lst_prev(t_stack *list);
 void        printf_lst_next(t_stack *list);

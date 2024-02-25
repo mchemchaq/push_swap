@@ -1,15 +1,15 @@
-SRCS  =  finel_linked.c libft.c  push_swap.c parsing.c ft_error.c instraction.c
+SRCS  =  finel_linked.c libft.c  push_swap.c parsing.c ft_error.c instraction.c print_lst.c
 
 NAME = push_swap
 OBJS = ${SRCS:.c=.o}
 CC = cc
-FLAGS = #-Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g -fsanitize=address 
 RM = rm -rf
 
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-	${CC} ${OBJS} -o $(NAME)
+	${CC} $(FLAGS) ${OBJS} -o $(NAME)
 
 %.o: %.c push_swap.h
 	$(CC) $(FLAGS) -c $< -o $@	
