@@ -1,5 +1,4 @@
-SRCS  =  finel_linked.c libft.c  push_swap.c parsing.c ft_error.c instraction.c print_lst.c
-
+SRCS  =  finel_linked.c libft.c  push_swap.c parsing.c ft_error.c instraction.c print_lst.c index_list.c
 NAME = push_swap
 OBJS = ${SRCS:.c=.o}
 CC = cc

@@ -6,7 +6,7 @@
 /*   By: mchemcha <mchemcha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 19:04:02 by mchemcha          #+#    #+#             */
-/*   Updated: 2024/02/25 18:25:39 by mchemcha         ###   ########.fr       */
+/*   Updated: 2024/02/26 21:47:39 by mchemcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,5 @@ int	main(int ac, char *av[])
 	tab = ft_split(s, ' ');
 	parcing(tab);
 	list = to_list(tab);
+	Longest_Increasing_Subsequence(list);
 }

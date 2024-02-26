@@ -6,7 +6,7 @@
 /*   By: mchemcha <mchemcha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 17:27:09 by mchemcha          #+#    #+#             */
-/*   Updated: 2024/02/25 18:49:25 by mchemcha         ###   ########.fr       */
+/*   Updated: 2024/02/26 21:35:25 by mchemcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_stack
 {
     int content;
     int index;
+    int nbr;
     struct s_stack *next;
     struct s_stack *prev;
 }t_stack;
@@ -60,6 +61,9 @@ void        r_r_a(t_stack **stack_a);
 void        r_r_r(t_stack **stack_a, t_stack **stack_b);
 void        p_a(t_stack **stack_a,t_stack **stack_b);
 void        p_b(t_stack **stack_a,t_stack **stack_b);
+
+int         index_list(t_stack *list);
+t_stack     Longest_Increasing_Subsequence(t_stack *list);
 
 void        printf_lst_prev(t_stack *list);
 void        printf_lst_next(t_stack *list);
